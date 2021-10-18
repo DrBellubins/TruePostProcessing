@@ -1,6 +1,6 @@
 namespace Stride.Rendering.Images
 {
-	shader ColorSpaceConversion_shader : ImageEffectShader
+	shader ColorspaceConversion_shader : ImageEffectShader
 	{
 		bool IsFirstStage;
 	

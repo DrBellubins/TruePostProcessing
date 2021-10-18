@@ -24,7 +24,7 @@ namespace Stride.Rendering.Images
         {
             base.InitializeCore();
 
-            colorSpaceConversionShader = ToLoadAndUnload(new ImageEffectShader("ColorSpaceConversion_shader"));
+            colorSpaceConversionShader = ToLoadAndUnload(new ImageEffectShader("ColorspaceConversion_shader"));
         }
 
         protected override void DrawCore(RenderDrawContext context)
@@ -35,7 +35,7 @@ namespace Stride.Rendering.Images
             if (input == null)
                 return;
 			
-            colorSpaceConversionShader.Parameters.Set(ColorSpaceConversionKeys.IsFirstStage, IsFirstStage);
+            colorSpaceConversionShader.Parameters.Set(ColorspaceConversionKeys.IsFirstStage, IsFirstStage);
 			
             Scaler.SetInput(input);
             Scaler.SetOutput(output);
