@@ -21,12 +21,12 @@ namespace Stride.Rendering.Images
         [NonOverridable]
         public Guid Id { get; set; } = Guid.NewGuid();
 		
-		[DataMemberIgnore] public ColorspaceConversion ColorspaceConversion { get; private set; }
+		[DataMemberIgnore] public ColorspaceConversion ColorspaceConversion { get; private set; } = new ColorspaceConversion();
 
         /// <summary>
         /// Gets the TrueBloom effect.
         /// </summary>
-        [DataMember("True Bloom"), Category] public TrueBloom TrueBloom { get; private set; }
+        [DataMember("True Bloom"), Category] public TrueBloom TrueBloom { get; private set; } = new TrueBloom();
 
         public bool RequiresVelocityBuffer => false;
         public bool RequiresNormalBuffer => false;
@@ -56,8 +56,8 @@ namespace Stride.Rendering.Images
         /// </summary>
         public TruePostProcessingEffects()
         {
-            ColorspaceConversion = new ColorspaceConversion();
-            TrueBloom = new TrueBloom();
+            //ColorspaceConversion = new ColorspaceConversion();
+            //TrueBloom = new TrueBloom();
         }
 
         /// <summary>
