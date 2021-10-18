@@ -46,7 +46,7 @@ namespace Stride.Rendering.Images
 		{
 			float4 color = Texture0.Sample(Sampler, streams.TexCoord);
 	
-			if (IsLastStage) // sRGB -> AP1
+			if (IsFirstStage) // sRGB -> AP1
 				color = mul(ACESInputMat, color);
 			else // Tonemap && AP1 -> sRGB
 			{
@@ -57,5 +57,5 @@ namespace Stride.Rendering.Images
 	
 			return color;
 		}
-	}
+	};
 }

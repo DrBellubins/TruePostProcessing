@@ -67,7 +67,6 @@ namespace Stride.Rendering.Images
 				float4 color = UpsamplePS(streams.TexCoord);
 				return color;
 			}
-			
 		}
-	}
+	};
 }

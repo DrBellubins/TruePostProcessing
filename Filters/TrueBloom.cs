@@ -108,8 +108,8 @@ namespace Stride.Rendering.Images
             // Upsample
             trueBloomFilter.Parameters.Set(TrueBloomKeys.IsDownsample, false);
 
-            var intensityIterator = 4f;
-            var radiusIterator = 8f;
+            var intensityIterator = Intensity;
+            var radiusIterator = Radius;
 
             for (int i = sampleCount - 1; i >= 0; i--)
             {
