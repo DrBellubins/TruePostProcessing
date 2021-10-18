@@ -2,14 +2,14 @@ namespace Stride.Rendering.Images
 {
 	shader TrueBloom_shader : ImageEffectShader
 	{
-		bool IsDownsample;
-		float2 InverseResolution;
-		float Radius;
-		float Strength;
+		stage bool IsDownsample;
+		stage float2 InverseResolution;
+		stage float Radius;
+		stage float Strength;
 	
 		float4 Box4(float4 p0, float4 p1, float4 p2, float4 p3)
 		{
-		return (p0 + p1 + p2 + p3) * 0.25f;
+			return (p0 + p1 + p2 + p3) * 0.25f;
 		}
 	
 		float4 DownsamplePS(float2 texCoord)
@@ -55,7 +55,7 @@ namespace Stride.Rendering.Images
 			return 0.0625f * (c0 + 2 * c1 + c2 + 2 * c3 + 4 * c4 + 2 * c5 + c6 + 2 * c7 + c8) * Strength + float4(0, 0,0,0); //+ 0.5f * ScreenTexture.Sample(c_texture, texCoord);
 		}
 	
-		override float4 Shading() 
+		stage override float4 Shading() 
 		{
 			if (IsDownsample)
 			{

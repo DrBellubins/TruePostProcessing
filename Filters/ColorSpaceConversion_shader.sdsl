@@ -2,7 +2,7 @@ namespace Stride.Rendering.Images
 {
 	shader ColorspaceConversion_shader : ImageEffectShader
 	{
-		bool IsFirstStage;
+		stage bool IsFirstStage;
 	
 		// sRGB => XYZ => D65_2_D60 => AP1 => RRT_SAT
 		static const float3x3 ACESInputMat =
@@ -41,7 +41,8 @@ namespace Stride.Rendering.Images
 	
 			return color;
 		}
-		override float4 Shading() 
+		
+		stage override float4 Shading() 
 		{
 			float4 color = Texture0.Sample(Sampler, streams.TexCoord);
 	

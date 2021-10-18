@@ -41,16 +41,25 @@ namespace Stride.Rendering.Images
         private const float _bloomRadius4 = 4.0f;
         private const float _bloomRadius5 = 4.0f;
 
-        private ImageEffectShader trueBloomFilter;
+        private readonly ImageEffectShader trueBloomFilter;
         private Vector2 BloomInverseResolution;
 
-        public TrueBloom() : base(null, false) { }
+        public TrueBloom() : this("TrueBloom_shader")
+		{
+			
+		}
+		
+		public TrueBloom(string shaderName) : base(shaderName) 
+		{
+			if (shaderName == null) throw new ArgumentNullException("trueBloomFilterName");
+				trueBloomFilter = new ImageEffectShader(shaderName);
+		}
 
         protected override void InitializeCore()
         {
             base.InitializeCore();
 
-            trueBloomFilter = ToLoadAndUnload(new ImageEffectShader("TrueBloom_shader"));
+            ToLoadAndUnload(trueBloomFilter);
         }
 
         protected override void DrawCore(RenderDrawContext context)
